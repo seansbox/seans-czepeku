@@ -1,0 +1,3 @@
+raw/*
+!raw/**/README.md
+.DS_Store
