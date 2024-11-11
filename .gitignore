@@ -3,3 +3,4 @@ __pycache__/
 .stfolder
 .sync*
 *.log
+desktop.ini
