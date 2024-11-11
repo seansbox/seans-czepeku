@@ -99,7 +99,7 @@ def build(c):
     unzip(c)
     for name, url in PATREON_URLS:
         sync_symlinks(c, f"../unzipped/{name}", f"../{name}", rename_func)
-        make_manifest(c, f"../unzipped/{name}", f"../manifest_{name}.json")
+        make_manifest(c, f"../unzipped/{name}", f"../{name}/manifest.json")
 
 
 @task
