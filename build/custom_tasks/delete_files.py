@@ -2,7 +2,7 @@ from invoke import task
 import glob
 import os
 import shutil
-from .print_progress import print_progress  # Assuming print_progress is in a module
+from .print_progress import print_progress
 
 
 @task
@@ -23,13 +23,7 @@ def delete_files(c, pattern):
         elif os.path.isdir(path):
             message = f"Deleting folder {path}"
         print_progress(message, processed=i, total=total_files)
-        # try:
         if os.path.isfile(path):
             os.remove(path)
         elif os.path.isdir(path):
             shutil.rmtree(path)
-        # except Exception as e:
-        #     pass
-
-
-# Usage: invoke delete_files --pattern="*.txt"

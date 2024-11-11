@@ -118,7 +118,7 @@ def sync_symlinks(c, srcdir, dstdir, rename_func=None):
         for file in files:
             target_file = os.path.normpath(os.path.join(root, file))
             # Remove symlinks that are not in the created_symlinks set
-            if os.path.islink(target_file) and target_file not in created_symlinks:
+            if target_file not in created_symlinks:
                 os.remove(target_file)
 
         # Remove empty directories in the target that no longer exist in the source

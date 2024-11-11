@@ -16,16 +16,15 @@ def make_manifest(c, dir, output_file, manifest_func=None):
         # Sort entries alphabetically
         entries = sorted(os.listdir(dir))
         for entry in entries:
-            processed_files += 1
-            if entry == ".DS_Store":
-                continue
-
-            print_progress(f"Manifesting {entry}...", processed_files, total_files, 100)
             entry_path = os.path.join(dir, entry)
             if os.path.isdir(entry_path):
                 # Recursively process directories
                 dir_structure[entry] = recurse_directory(entry_path)
             else:
+                processed_files += 1
+                if entry[0] == ".":
+                    continue
+                print_progress(f"Manifesting {entry}...", processed_files, total_files, 100)
                 dir_structure[entry] = manifest_func(entry_path) if manifest_func else None
         return dir_structure
 
