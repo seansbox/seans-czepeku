@@ -1,10 +1,8 @@
 from invoke import task
-from custom_tasks.unzip_files import unzip_files
-from custom_tasks.sync_symlinks import sync_symlinks
-from custom_tasks.delete_files import delete_files
-from custom_tasks.make_manifest import make_manifest
-from custom_tasks.download_file import download_font
-from custom_tasks.draw_favicons import draw_favicons
+from invoke_tasks.unzip_files import unzip_files
+from invoke_tasks.sync_symlinks import sync_symlinks
+from invoke_tasks.delete_files import delete_files
+from invoke_tasks.make_manifest import make_manifest
 
 import json
 import re

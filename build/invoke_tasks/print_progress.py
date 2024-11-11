@@ -23,14 +23,13 @@ def print_progress(message, processed=0, total=0, show_every=1, message_width=ME
                              Defaults to the calculated MESSAGE_WIDTH based on terminal size.
     """
     if processed > 0 and total > 0:
-        symbol = "-" if processed == total else next(spinner)
-
         if len(message) > message_width:
             display_message = message[: message_width - 3] + "..."  # Truncate and add ellipsis
         else:
             display_message = message.ljust(message_width)  # Pad with spaces
 
         if processed % show_every == 0 or processed == total:
+            symbol = "-" if processed == total else next(spinner)
             print(f"{symbol} {processed}/{total} {display_message}", end="\r")
 
         if processed == total:
